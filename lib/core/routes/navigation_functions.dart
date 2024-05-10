@@ -10,7 +10,7 @@ void customReplacementNavigate(context, String path) {
 
 void delayedNavigate(context, path) {
   Future.delayed(
-    const Duration(seconds: 5),
+    const Duration(seconds: 3),
     () {
       customReplacementNavigate(context, path);
     },
