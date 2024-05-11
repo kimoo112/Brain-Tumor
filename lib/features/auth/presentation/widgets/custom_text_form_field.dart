@@ -4,6 +4,7 @@ import '../../../../core/utils/app_colors.dart';
 
 class CustomTextFormField extends StatelessWidget {
   final String? hintText;
+  final String? labelText;
   final bool isHavePrefix;
   final TextEditingController? controller;
   final IconData? icon;
@@ -15,6 +16,7 @@ class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
     super.key,
     this.hintText,
+    this.labelText,
     this.controller,
     this.obscureText,
     this.icon,
@@ -30,7 +32,6 @@ class CustomTextFormField extends StatelessWidget {
     return TextFormField(
       obscureText: obscureText ?? false,
       onChanged: onChanged,
-      
       keyboardType: keyboardType,
       controller: controller,
       validator: validator ??
@@ -42,13 +43,15 @@ class CustomTextFormField extends StatelessWidget {
             return null;
           },
       decoration: InputDecoration(
-        focusedBorder:  OutlineInputBorder(
-        borderSide: const BorderSide(color: AppColors.primaryColor),
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: AppColors.primaryColor),
           borderRadius: BorderRadius.circular(10),
-    ),
+        ),
         prefixIcon: isHavePrefix ? Icon(icon, color: AppColors.darkGrey) : null,
         hintStyle: const TextStyle(color: AppColors.darkGrey),
         hintText: hintText,
+        label: labelText != null ? Text(labelText!) : null,
+        labelStyle: const TextStyle(color: AppColors.darkGrey),
         suffixIcon: suffixIcon,
         hoverColor: AppColors.primaryColor,
         border: OutlineInputBorder(

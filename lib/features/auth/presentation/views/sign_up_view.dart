@@ -29,7 +29,8 @@ class SignUpView extends StatelessWidget {
                   child: Padding(
                 padding: EdgeInsets.only(right: 8.0.sp),
                 child: const CustomTextFormField(
-                  hintText: 'First Name',
+                  labelText: 'First Name',
+                  hintText: 'Leonardo',
                   isHavePrefix: false,
                 ),
               )),
@@ -37,7 +38,8 @@ class SignUpView extends StatelessWidget {
                   child: Padding(
                 padding: EdgeInsets.only(left: 8.0.sp),
                 child: const CustomTextFormField(
-                  hintText: 'Second Name',
+                  labelText: 'Second Name',
+                  hintText: 'Dicaprio',
                   isHavePrefix: false,
                 ),
               )),
@@ -45,17 +47,20 @@ class SignUpView extends StatelessWidget {
           ),
           16.verticalSpace,
           const CustomTextFormField(
-            hintText: 'Email Address',
+            labelText: 'Email Address',
+            hintText: 'example@gmail.com',
             isHavePrefix: false,
           ),
           24.verticalSpace,
           const CustomTextFormField(
-            hintText: 'Password',
+            labelText: 'Password',
+            hintText: "************",
             isHavePrefix: false,
           ),
           24.verticalSpace,
           const CustomTextFormField(
-            hintText: 'Confirm Password',
+            labelText: 'Confirm Password',
+            hintText: "************",
             isHavePrefix: false,
           ),
           24.verticalSpace,
@@ -76,38 +81,38 @@ class SignUpView extends StatelessWidget {
 
   Row _alreadyHaveAccount(BuildContext context) {
     return Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Already Have an account ? ',
-              style: CustomTextStyles.poppins400Style16,
-            ),
-            TextButton(
-              onPressed: () {
-                customNavigate(context, loginView);
-              },
-              child: Text(
-                'Login',
-                style: CustomTextStyles.poppins400Style16
-                    .copyWith(color: AppColors.primaryColor),
-              ),
-            ),
-          ],
-        );
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Text(
+          'Already Have an account ? ',
+          style: CustomTextStyles.poppins400Style16,
+        ),
+        TextButton(
+          onPressed: () {
+            customNavigate(context, loginView);
+          },
+          child: Text(
+            'Login',
+            style: CustomTextStyles.poppins400Style16
+                .copyWith(color: AppColors.primaryColor),
+          ),
+        ),
+      ],
+    );
   }
 
   Text _buildDescriptionText() {
     return Text(
-          'Enter your info to create account',
-          style: CustomTextStyles.poppins400Style16
-              .copyWith(color: AppColors.darkGrey),
-          textAlign: TextAlign.center,
-        );
+      'Enter your info to create account',
+      style: CustomTextStyles.poppins400Style16
+          .copyWith(color: AppColors.darkGrey),
+      textAlign: TextAlign.center,
+    );
   }
 
   Text _buildTitleText() {
     return Text('Sign Up',
-            style: CustomTextStyles.poppins400Style24
-                .copyWith(fontWeight: FontWeight.bold));
+        style: CustomTextStyles.poppins400Style24
+            .copyWith(fontWeight: FontWeight.bold));
   }
 }

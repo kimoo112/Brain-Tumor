@@ -49,20 +49,26 @@ class LoginView extends StatelessWidget {
               onPressed: () {},
             ),
             16.verticalSpace,
-            Text(
-              'Forget Password ?',
-              style: CustomTextStyles.poppins400Style16,
-              textAlign: TextAlign.center,
+            TextButton(
+              onPressed: () {
+                customNavigate(context, forgetPasswordView);
+              },
+              child: Text(
+                'Forget Password ?',
+                style: CustomTextStyles.poppins400Style16
+                    .copyWith(color: AppColors.primaryColor),
+                textAlign: TextAlign.center,
+              ),
             ),
             16.verticalSpace,
             Row(
               children: [
-                 Expanded(
+                Expanded(
                   child: Divider(
                     indent: 10,
-                  endIndent: 10,                          color: AppColors.darkGrey.withOpacity(.6),
-
-                    thickness: .7, 
+                    endIndent: 10,
+                    color: AppColors.darkGrey.withOpacity(.6),
+                    thickness: .7,
                   ),
                 ),
                 Expanded(
@@ -74,15 +80,12 @@ class LoginView extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                 ),
-                
-                 Expanded(
-                  
+                Expanded(
                   child: Divider(
-                  indent: 10,
-                  endIndent: 10,
-                                       color: AppColors.darkGrey.withOpacity(.6),
-// Adjust color as needed
-                    thickness: .7, // Adjust thickness as needed
+                    indent: 10,
+                    endIndent: 10,
+                    color: AppColors.darkGrey.withOpacity(.6),
+                    thickness: .7,
                   ),
                 ),
               ],

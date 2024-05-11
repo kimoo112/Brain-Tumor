@@ -25,7 +25,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onPressed,
-      borderRadius: BorderRadius.circular(55.r),
+      borderRadius: BorderRadius.circular(borderRadius ?? 55.r),
       child: Container(
         margin: EdgeInsets.all(marginSize ?? 8),
         width: double.infinity,
@@ -38,7 +38,7 @@ class CustomButton extends StatelessWidget {
         child: Text(
           text,
           style: CustomTextStyles.poppins400Style16.copyWith(
-            color: textColor
+            color: textColor ?? AppColors.white
           )
         ),
       ),

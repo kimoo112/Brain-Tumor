@@ -5,6 +5,10 @@ class Assets {
   /// assets/images/facebook_logo.png
   static const String imagesFacebookLogo = "assets/images/facebook_logo.png";
 
+  /// Assets for imagesForgetPassword
+  /// assets/images/Forget-Password.png
+  static const String imagesForgetPassword = "assets/images/Forget-Password.png";
+
   /// Assets for imagesGoogleIcon
   /// assets/images/google_icon.png
   static const String imagesGoogleIcon = "assets/images/google_icon.png";
