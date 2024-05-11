@@ -12,6 +12,16 @@ abstract class CustomTextStyles {
     fontWeight: FontWeight.w400,
     fontFamily: "Poppins",
   );
+   static TextStyle poppins400Style12 = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w400,
+    fontFamily: "Poppins",
+  );
+    static TextStyle poppins400Style14 = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w400,
+    fontFamily: "Poppins",
+  );
       static  TextStyle poppins400Style24 = TextStyle(
     fontSize: 24.sp,
     fontWeight: FontWeight.w400,

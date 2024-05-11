@@ -1,3 +1,5 @@
+import 'package:brain_tumor/core/routes/navigation_functions.dart';
+import 'package:brain_tumor/core/routes/routes.dart';
 import 'package:brain_tumor/core/utils/app_assets.dart';
 import 'package:brain_tumor/core/utils/app_colors.dart';
 import 'package:brain_tumor/core/utils/app_text_styles.dart';
@@ -6,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../widgets/custom_text_form_field.dart';
+import '../widgets/social_media_button.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -39,7 +42,7 @@ class LoginView extends StatelessWidget {
             ),
             16.verticalSpace,
             CustomButton(
-              text: 'Login',
+              text: 'Login'.toUpperCase(),
               borderRadius: 12.r,
               marginSize: 0,
               textColor: AppColors.white,
@@ -52,27 +55,49 @@ class LoginView extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             16.verticalSpace,
-            Text(
-              'Or Continue With',
-              style: CustomTextStyles.poppins400Style16.copyWith(
-                  color: AppColors.darkGrey.withOpacity(.6), fontSize: 12),
-              textAlign: TextAlign.center,
+            Row(
+              children: [
+                 Expanded(
+                  child: Divider(
+                    indent: 10,
+                  endIndent: 10,                          color: AppColors.darkGrey.withOpacity(.6),
+
+                    thickness: .7, 
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    'Or Continue With',
+                    style: CustomTextStyles.poppins400Style16.copyWith(
+                        color: AppColors.primaryColor.withOpacity(.6),
+                        fontSize: 10),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                
+                 Expanded(
+                  
+                  child: Divider(
+                  indent: 10,
+                  endIndent: 10,
+                                       color: AppColors.darkGrey.withOpacity(.6),
+// Adjust color as needed
+                    thickness: .7, // Adjust thickness as needed
+                  ),
+                ),
+              ],
             ),
             8.verticalSpace,
-            Container(
-              height: 45.h,
-              width: 75.w,
-              margin: EdgeInsets.all(8.sp),
-              decoration: BoxDecoration(
-                  color: AppColors.white,
-                  borderRadius: BorderRadius.circular(8),
-                  boxShadow: [
-                    BoxShadow(
-                        blurRadius: 11,
-                        spreadRadius: 3,
-                        color: AppColors.lightGrey.withOpacity(.8))
-                  ]),
-              child: Image.asset(Assets.imagesGoogleIcon),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SocialMediaButton(
+                  image: Assets.imagesGoogleIcon,
+                ),
+                SocialMediaButton(
+                  image: Assets.imagesFacebookLogo,
+                ),
+              ],
             ),
             16.verticalSpace,
             Row(
@@ -83,7 +108,9 @@ class LoginView extends StatelessWidget {
                   style: CustomTextStyles.poppins400Style16,
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    customNavigate(context, signUpView);
+                  },
                   style: TextButton.styleFrom(
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   ),

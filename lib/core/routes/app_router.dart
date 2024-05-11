@@ -3,6 +3,7 @@ import 'package:brain_tumor/features/on_boarding/presentation/views/on_boarding_
 import 'package:go_router/go_router.dart';
 
 import '../../features/auth/presentation/views/login_view.dart';
+import '../../features/auth/presentation/views/sign_up_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
 
 final GoRouter router = GoRouter(routes: [
@@ -17,5 +18,9 @@ final GoRouter router = GoRouter(routes: [
   GoRoute(
     path: loginView,
     builder: (context, state) => const LoginView()
+  ),
+   GoRoute(
+    path: signUpView,
+    builder: (context, state) => const SignUpView()
   ),
 ]);

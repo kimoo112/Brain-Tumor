@@ -9,9 +9,10 @@ environment:
 
 dependencies:
   cupertino_icons: ^1.0.6
+  firebase_auth: ^4.19.5
+  firebase_core: ^2.31.0
   flutter:
     sdk: flutter
-  flutter_icons: ^1.1.0
   flutter_screenutil: ^5.9.0
   go_router: ^14.0.2
   shared_preferences: ^2.2.3
