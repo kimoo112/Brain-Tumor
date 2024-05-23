@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/cache/cache_helper.dart';
 import '../widgets/get_buttons.dart';
 import '../widgets/on_boarding_widget_body.dart';
 
@@ -14,6 +15,8 @@ class OnBoardingView extends StatefulWidget {
 class _OnBoardingViewState extends State<OnBoardingView> {
   final PageController _controller = PageController(initialPage: 0);
   int currentIndex = 0;
+ 
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

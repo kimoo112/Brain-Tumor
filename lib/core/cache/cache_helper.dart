@@ -27,7 +27,7 @@ class CacheHelper {
 
 //! this method to get data already saved in local database
 
-  dynamic getData({required String key}) {
+static dynamic getData({required String key}) {
     return sharedPreferences.get(key);
   }
 
