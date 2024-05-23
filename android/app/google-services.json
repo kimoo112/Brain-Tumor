@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "149544505550",
+    "project_id": "brain-tumor-3a1dd",
+    "storage_bucket": "brain-tumor-3a1dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149544505550:android:bef9170a024a8682e7809f",
+        "android_client_info": {
+          "package_name": "com.example.brain_tumor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8Cuqqkyqda1d2-K5l3lem6VPhqLWe3VQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

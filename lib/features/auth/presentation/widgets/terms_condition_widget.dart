@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_colors.dart';
@@ -14,21 +13,20 @@ class TermsConditionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        CustomCheckBox(),
-         Text.rich(
-    TextSpan(
-      children: [
-        TextSpan(
-            text: 'I Have Agree',
-            style: CustomTextStyles.poppins400Style14),
-        TextSpan(
-            text: ' With Terms & Condition',
-            style: CustomTextStyles.poppins400Style14
-                .copyWith(color: AppColors.primaryColor)),
-      ],
-    ),
-            ),
-    
+        const CustomCheckBox(),
+        Text.rich(
+          TextSpan(
+            children: [
+              TextSpan(
+                  text: 'I Have Agree',
+                  style: CustomTextStyles.poppins400Style14),
+              TextSpan(
+                  text: ' With Terms & Condition',
+                  style: CustomTextStyles.poppins400Style14
+                      .copyWith(color: AppColors.primaryColor)),
+            ],
+          ),
+        ),
       ],
     );
   }

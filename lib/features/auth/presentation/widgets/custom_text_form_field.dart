@@ -37,7 +37,7 @@ class CustomTextFormField extends StatelessWidget {
       validator: validator ??
           (value) {
             if (value!.isEmpty) {
-              return 'field is required';
+              return 'Please enter your ${labelText ?? hintText} ';
             }
 
             return null;
