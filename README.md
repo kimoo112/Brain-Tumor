@@ -1,16 +1,16 @@
-# brain_tumor
+# Brain Tumor 📱🧠 
+**Scan , Analyze & Secure with AI!**
 
-A new Flutter project.
+Peace of mind at your fingertips! This app empowers you to take control of your health.  Capture brain scans with your phone's camera  and analyze them with powerful AI  to detect potential tumors.
 
-## Getting Started
+## ✅Features :
 
-This project is a starting point for a Flutter application.
+🚪 **Secure Login:** Keep your health data safe with secure login. 
 
-A few resources to get you started if this is your first Flutter project:
+📸 **Easy Scan:** Capture scans directly within the app. 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+🤖 **AI Analysis:** Powerful AI analyzes scans for abnormalities. 
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+⚠️ **Early Warning:** Get potential early warnings for brain tumors.
+
+🥼 **Disclaimer:** This app is for informational purposes only and should not replace professional medical advice.
