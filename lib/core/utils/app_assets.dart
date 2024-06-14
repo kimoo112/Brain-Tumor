@@ -5,6 +5,10 @@ class Assets {
   /// assets/images/arrowDown.png
   static const String imagesArrowDown = "assets/images/arrowDown.png";
 
+  /// Assets for imagesBlueButtonCircle
+  /// assets/images/blueButtonCircle.png
+  static const String imagesBlueButtonCircle = "assets/images/blueButtonCircle.png";
+
   /// Assets for imagesBlueCircle
   /// assets/images/BlueCircle.png
   static const String imagesBlueCircle = "assets/images/BlueCircle.png";
@@ -20,6 +24,10 @@ class Assets {
   /// Assets for imagesGoogleIcon
   /// assets/images/google_icon.png
   static const String imagesGoogleIcon = "assets/images/google_icon.png";
+
+  /// Assets for imagesLightButtonCircle
+  /// assets/images/LightButtonCircle.png
+  static const String imagesLightButtonCircle = "assets/images/LightButtonCircle.png";
 
   /// Assets for imagesLogo
   /// assets/images/logo.png
@@ -47,10 +55,14 @@ class Assets {
 
   /// Assets for imagesPurpleCirlce
   /// assets/images/PurpleCirlce.png
-  static const String imagesPurpleCirlce = "assets/images/PurpleCirlce.png";
+  static const String imagesPurpleCircle = "assets/images/PurpleCirlce.png";
 
   /// Assets for imagesScanIcon
   /// assets/images/scanIcon.png
   static const String imagesScanIcon = "assets/images/scanIcon.png";
+
+  /// Assets for imagesSignoutIcon
+  /// assets/images/SignoutIcon.png
+  static const String imagesSignoutIcon = "assets/images/SignoutIcon.png";
 }
 

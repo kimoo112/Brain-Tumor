@@ -16,9 +16,9 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
-    bool isOnBoardingVisisted =
+    bool isOnBoardingVisited =
         CacheHelper.getData(key: "isOnBoardingVisited") ?? false;
-    if (isOnBoardingVisisted == true) {
+    if (isOnBoardingVisited == true) {
       FirebaseAuth.instance.currentUser == null
           ? delayedNavigate(context, loginView)
           : FirebaseAuth.instance.currentUser!.emailVerified == true
@@ -29,7 +29,6 @@ class _SplashViewState extends State<SplashView> {
     }
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {

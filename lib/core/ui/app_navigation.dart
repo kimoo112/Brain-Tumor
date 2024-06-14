@@ -2,12 +2,12 @@ import 'dart:async';
 
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:brain_tumor/core/utils/app_assets.dart';
-import 'package:brain_tumor/features/auth/presentation/views/login_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 import '../../features/home/presentation/views/home_view.dart';
+import '../../features/profile/presentation/view/profile_view.dart';
 import '../utils/app_colors.dart';
 
 class AppNavigation extends StatefulWidget {
@@ -35,7 +35,7 @@ class _AppNavigationState extends State<AppNavigation>
   ];
   List<Widget> pages = [
     const HomeView(),
-    const HomeView(),
+    const ProfileView(),
   ];
   @override
   void initState() {
