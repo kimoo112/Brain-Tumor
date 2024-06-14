@@ -9,8 +9,8 @@ import '../../../../core/routes/navigation_functions.dart';
 import '../../../../core/routes/routes.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_styles.dart';
-import '../../cubit/auth_cubit.dart';
-import '../../cubit/auth_state.dart';
+import '../cubit/auth_cubit.dart';
+import '../cubit/auth_state.dart';
 
 class ForgetPasswordView extends StatelessWidget {
   const ForgetPasswordView({super.key});
