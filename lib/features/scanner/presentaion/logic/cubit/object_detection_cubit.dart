@@ -10,11 +10,12 @@ part 'object_detection_state.dart';
 class ObjectDetectionCubit extends Cubit<ObjectDetectionState> {
   ObjectDetectionCubit() : super(ObjectDetectionInitial());
   final ImagePicker _picker = ImagePicker();
+
   Future<void> loadModel() async {
     try {
       await Tflite.loadModel(
-        model: "assets/model_unquant.tflite",
-        labels: "assets/labels.txt",
+        model: "assets/models/model_unquant.tflite",
+        labels: "assets/models/labels.txt",
       );
       emit(ObjectDetectionModelLoaded());
     } catch (e) {
@@ -36,6 +37,7 @@ class ObjectDetectionCubit extends Cubit<ObjectDetectionState> {
   }
 
   Future<void> detectImage(File image) async {
+    emit(ObjectDetectionLoading());
     try {
       var recognitions = await Tflite.runModelOnImage(
         path: image.path,
@@ -44,7 +46,7 @@ class ObjectDetectionCubit extends Cubit<ObjectDetectionState> {
         imageMean: 127.5,
         imageStd: 127.5,
       );
-      emit(ObjectDetectionDetected(recognitions.toString()));
+      emit(ObjectDetectionDetected(image, recognitions.toString()));
     } catch (e) {
       emit(ObjectDetectionError('Error detecting image: $e'));
     }

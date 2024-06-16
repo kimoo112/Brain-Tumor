@@ -5,9 +5,11 @@ import 'package:brain_tumor/core/utils/app_assets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/home/presentation/views/home_view.dart';
 import '../../features/profile/presentation/view/profile_view.dart';
+import '../../features/scanner/presentaion/logic/cubit/object_detection_cubit.dart';
 import '../utils/app_colors.dart';
 
 class AppNavigation extends StatefulWidget {
@@ -102,7 +104,9 @@ class _AppNavigationState extends State<AppNavigation>
     return Scaffold(
       extendBody: true,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          context.read<ObjectDetectionCubit>().pickImage();
+        },
         shape: const CircleBorder(),
         backgroundColor: AppColors.primaryColor,
         child: Stack(

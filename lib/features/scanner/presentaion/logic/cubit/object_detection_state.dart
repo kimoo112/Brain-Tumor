@@ -4,6 +4,7 @@ part of 'object_detection_cubit.dart';
 sealed class ObjectDetectionState {}
 
 final class ObjectDetectionInitial extends ObjectDetectionState {}
+class ObjectDetectionLoading extends ObjectDetectionState {}
 class ObjectDetectionModelLoaded extends ObjectDetectionState {}
 
 class ObjectDetectionImagePicked extends ObjectDetectionState {
@@ -13,9 +14,9 @@ class ObjectDetectionImagePicked extends ObjectDetectionState {
 }
 
 class ObjectDetectionDetected extends ObjectDetectionState {
+  final File image;
   final String result;
-
-  ObjectDetectionDetected(this.result);
+  ObjectDetectionDetected(this.image, this.result);
 }
 
 class ObjectDetectionError extends ObjectDetectionState {
