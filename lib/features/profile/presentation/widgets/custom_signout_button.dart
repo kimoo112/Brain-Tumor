@@ -47,32 +47,21 @@ class CustomSignOutButton extends StatelessWidget {
                       border: Border.all(
                           color: AppColors.primaryBlue.withOpacity(.6),
                           width: 2)),
-                  child: Stack(
-                    children: [
-                      Positioned(
-                          top: 0,
-                          right: 0,
-                          child: ClipRRect(
-                              borderRadius: BorderRadius.circular(25.0.sp),
-                              child:
-                                  Image.asset(Assets.imagesLightButtonCircle))),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Sign out',
-                              style: CustomTextStyles.poppins400Style14
-                                  .copyWith(
-                                      color: AppColors.primaryLightBlue,
-                                      fontWeight: FontWeight.w100),
-                            ),
-                            Image.asset(Assets.imagesSignoutIcon)
-                          ],
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Sign out',
+                          style: CustomTextStyles.poppins400Style14
+                              .copyWith(
+                                  color: AppColors.primaryLightBlue,
+                                  fontWeight: FontWeight.w100),
                         ),
-                      ),
-                    ],
+                        Image.asset(Assets.imagesSignoutIcon)
+                      ],
+                    ),
                   )),
         );
       },
