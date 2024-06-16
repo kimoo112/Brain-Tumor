@@ -14,17 +14,19 @@ class TermsConditionWidget extends StatelessWidget {
     return Row(
       children: [
         const CustomCheckBox(),
-        Text.rich(
-          TextSpan(
-            children: [
-              TextSpan(
-                  text: 'I Have Agree',
-                  style: CustomTextStyles.poppins400Style14),
-              TextSpan(
-                  text: ' With Terms & Condition',
-                  style: CustomTextStyles.poppins400Style14
-                      .copyWith(color: AppColors.primaryColor)),
-            ],
+        Flexible(
+          child: Text.rich(
+            TextSpan(
+              children: [
+                TextSpan(
+                    text: 'I Have Agree',
+                    style: CustomTextStyles.poppins400Style14),
+                TextSpan(
+                    text: ' With Terms & Condition',
+                    style: CustomTextStyles.poppins400Style14
+                        .copyWith(color: AppColors.primaryColor)),
+              ],
+            ),
           ),
         ),
       ],

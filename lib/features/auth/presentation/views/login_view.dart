@@ -155,21 +155,25 @@ class _LoginViewState extends State<LoginView> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text(
-                        'Don\'t have an account ? ',
-                        style: CustomTextStyles.poppins400Style16,
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          customNavigate(context, signUpView);
-                        },
-                        style: TextButton.styleFrom(
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        ),
+                      Flexible(
                         child: Text(
-                          'Sign Up',
-                          style: CustomTextStyles.poppins400Style16
-                              .copyWith(color: AppColors.primaryColor),
+                          'Don\'t have an account ? ',
+                          style: CustomTextStyles.poppins400Style16,
+                        ),
+                      ),
+                      Flexible(
+                        child: TextButton(
+                          onPressed: () {
+                            customNavigate(context, signUpView);
+                          },
+                          style: TextButton.styleFrom(
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          ),
+                          child: Text(
+                            'Sign Up',
+                            style: CustomTextStyles.poppins400Style16
+                                .copyWith(color: AppColors.primaryColor),
+                          ),
                         ),
                       ),
                     ],

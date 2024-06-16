@@ -34,20 +34,23 @@ class SignUpView extends StatelessWidget {
 
   Row _alreadyHaveAccount(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Text(
-          'Already Have an account ? ',
-          style: CustomTextStyles.poppins400Style16,
-        ),
-        TextButton(
-          onPressed: () {
-            customNavigate(context, loginView);
-          },
+        Flexible(
           child: Text(
-            'Login',
-            style: CustomTextStyles.poppins400Style16
-                .copyWith(color: AppColors.primaryColor),
+            'Already Have an account ? ',
+            style: CustomTextStyles.poppins400Style16,
+          ),
+        ),
+        Flexible(
+          child: TextButton(
+            onPressed: () {
+              customNavigate(context, loginView);
+            },
+            child: Text(
+              'Login',
+              style: CustomTextStyles.poppins400Style16
+                  .copyWith(color: AppColors.primaryColor),
+            ),
           ),
         ),
       ],

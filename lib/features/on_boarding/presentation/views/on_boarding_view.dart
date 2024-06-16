@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/cache/cache_helper.dart';
 import '../widgets/get_buttons.dart';
 import '../widgets/on_boarding_widget_body.dart';
 
