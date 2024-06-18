@@ -1,10 +1,11 @@
 part of 'object_detection_cubit.dart';
 
-@immutable
 sealed class ObjectDetectionState {}
 
 final class ObjectDetectionInitial extends ObjectDetectionState {}
+
 class ObjectDetectionLoading extends ObjectDetectionState {}
+
 class ObjectDetectionModelLoaded extends ObjectDetectionState {}
 
 class ObjectDetectionImagePicked extends ObjectDetectionState {
@@ -15,12 +16,12 @@ class ObjectDetectionImagePicked extends ObjectDetectionState {
 
 class ObjectDetectionDetected extends ObjectDetectionState {
   final File image;
-  final String result;
-  ObjectDetectionDetected(this.image, this.result);
+  final String recognition;
+  ObjectDetectionDetected(this.image, this.recognition);
 }
 
 class ObjectDetectionError extends ObjectDetectionState {
-  final String message;
+  final String errMessage;
 
-  ObjectDetectionError(this.message);
+  ObjectDetectionError(this.errMessage);
 }

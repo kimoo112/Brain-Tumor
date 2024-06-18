@@ -18,26 +18,23 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0.w),
-          child: ListView(
-            physics: const BouncingScrollPhysics(),
-            children: [
-              40.verticalSpace,
-              OnBoardingWidgetBody(
-                onPageChanged: (index) {
-                  setState(() {
-                    currentIndex = index;
-                  });
-                },
-                controller: _controller,
-              ),
-              17.verticalSpace,
-              GetButtons(currentIndex: currentIndex, controller: _controller),
-            ],
-          ),
+    return Scaffold(
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.0.w),
+        child: ListView(
+          physics: const BouncingScrollPhysics(),
+          children: [
+            40.verticalSpace,
+            OnBoardingWidgetBody(
+              onPageChanged: (index) {
+                setState(() {
+                  currentIndex = index;
+                });
+              },
+              controller: _controller,
+            ),
+            GetButtons(currentIndex: currentIndex, controller: _controller),
+          ],
         ),
       ),
     );

@@ -1,8 +1,7 @@
 import 'dart:io';
 
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:meta/meta.dart';
 import 'package:tflite_v2/tflite_v2.dart';
 
 part 'object_detection_state.dart';
@@ -46,9 +45,22 @@ class ObjectDetectionCubit extends Cubit<ObjectDetectionState> {
         imageMean: 127.5,
         imageStd: 127.5,
       );
-      emit(ObjectDetectionDetected(image, recognitions.toString()));
+      String formattedResult = _formatRecognitions(recognitions);
+      emit(ObjectDetectionDetected(image, formattedResult.toString()));
     } catch (e) {
       emit(ObjectDetectionError('Error detecting image: $e'));
     }
+  }
+
+  String _formatRecognitions(List<dynamic>? recognitions) {
+    if (recognitions == null || recognitions.isEmpty) {
+      return 'No objects detected';
+    }
+
+    StringBuffer buffer = StringBuffer();
+    for (var recognition in recognitions) {
+      buffer.writeln('${recognition["label"]}');
+    }
+    return buffer.toString();
   }
 }

@@ -14,11 +14,12 @@ class SignUpView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Padding(
-      padding: EdgeInsets.all(8.0.sp),
+      padding: EdgeInsets.all(12.0.sp),
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            40.verticalSpace,
             _buildTitleText(),
             16.verticalSpace,
             _buildDescriptionText(),
@@ -34,6 +35,7 @@ class SignUpView extends StatelessWidget {
 
   Row _alreadyHaveAccount(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Flexible(
           child: Text(

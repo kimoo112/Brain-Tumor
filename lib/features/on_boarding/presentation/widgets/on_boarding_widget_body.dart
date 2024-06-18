@@ -14,7 +14,7 @@ class OnBoardingWidgetBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 852,
+      height: 650.h,
       child: PageView.builder(
         onPageChanged: onPageChanged,
         physics: const BouncingScrollPhysics(),
@@ -51,7 +51,7 @@ class OnBoardingWidgetBody extends StatelessWidget {
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
-              const Spacer(),
+              40.verticalSpace,
               CustomSmoothPageIndicator(controller: controller),
             ],
           );

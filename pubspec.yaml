@@ -17,7 +17,6 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.5
-  flutter_iconly: ^1.0.2
   flutter_launcher_icons: ^0.13.1
   flutter_screenutil: ^5.9.0
   font_awesome_flutter: ^10.7.0
@@ -36,10 +35,10 @@ flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/images/logo.png"
-  # min_sdk_android: 21
 
 flutter:
   uses-material-design: true
+
   assets:
     - assets/images/
     - assets/models/
