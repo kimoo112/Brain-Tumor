@@ -1,4 +1,4 @@
-import 'package:brain_tumor/core/routes/routes.dart';
+import '../../../../core/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

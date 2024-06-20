@@ -1,8 +1,8 @@
-import 'package:brain_tumor/core/cache/cache_helper.dart';
-import 'package:brain_tumor/core/utils/bloc_observer.dart';
-import 'package:brain_tumor/features/auth/presentation/cubit/auth_cubit.dart';
-import 'package:brain_tumor/features/scanner/presentation/logic/cubit/object_detection_cubit.dart';
-import 'package:brain_tumor/firebase_options.dart';
+import 'core/cache/cache_helper.dart';
+import 'core/utils/bloc_observer.dart';
+import 'features/auth/presentation/cubit/auth_cubit.dart';
+import 'features/scanner/presentation/logic/cubit/object_detection_cubit.dart';
+import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

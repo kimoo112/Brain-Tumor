@@ -1,6 +1,6 @@
-import 'package:brain_tumor/features/auth/presentation/cubit/auth_cubit.dart';
-import 'package:brain_tumor/features/auth/presentation/cubit/auth_state.dart';
-import 'package:brain_tumor/features/auth/presentation/widgets/custom_text_form_field.dart';
+import '../cubit/auth_cubit.dart';
+import '../cubit/auth_state.dart';
+import 'custom_text_form_field.dart';
 import 'package:cherry_toast/cherry_toast.dart';
 import 'package:cherry_toast/resources/arrays.dart';
 import 'package:flutter/material.dart';

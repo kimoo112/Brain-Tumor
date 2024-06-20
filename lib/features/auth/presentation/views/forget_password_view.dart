@@ -1,6 +1,6 @@
-import 'package:brain_tumor/core/utils/app_assets.dart';
-import 'package:brain_tumor/core/widgets/custom_button.dart';
-import 'package:brain_tumor/features/auth/presentation/widgets/custom_text_form_field.dart';
+import '../../../../core/utils/app_assets.dart';
+import '../../../../core/widgets/custom_button.dart';
+import '../widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

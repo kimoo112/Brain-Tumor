@@ -1,5 +1,5 @@
-import 'package:brain_tumor/core/routes/routes.dart';
-import 'package:brain_tumor/features/auth/presentation/cubit/auth_state.dart';
+import '../../../../core/routes/routes.dart';
+import '../../../auth/presentation/cubit/auth_state.dart';
 import 'package:cherry_toast/cherry_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

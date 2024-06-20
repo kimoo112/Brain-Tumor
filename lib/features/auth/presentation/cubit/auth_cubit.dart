@@ -25,7 +25,8 @@ class AuthCubit extends Cubit<AuthState> {
   GlobalKey<FormState> signupFormKey = GlobalKey();
   GlobalKey<FormState> signInFormKey = GlobalKey();
   GlobalKey<FormState> forgotPasswordFormKey = GlobalKey();
-
+  String? profileFirstName;
+  String? profileLastName;
   Future<void> signUpWithEmailAndPassword() async {
     try {
       emit(SignupLoadingState());
@@ -137,6 +138,42 @@ class AuthCubit extends Cubit<AuthState> {
       "first_name": firstName,
       "last_name": secondName,
     });
+  }
+
+  Future<void> fetchUserData() async {
+    emit(UserLoading());
+    try {
+      profileFirstName = CacheHelper.getData(key: 'first_name');
+      profileLastName = CacheHelper.getData(key: 'last_name');
+
+      if (profileFirstName == null || profileLastName == null) {
+        String? email = FirebaseAuth.instance.currentUser?.email;
+
+        if (email == null) {
+          throw Exception("No authenticated user found");
+        }
+
+        CollectionReference users =
+            FirebaseFirestore.instance.collection('users');
+        QuerySnapshot querySnapshot =
+            await users.where('email', isEqualTo: email).get();
+
+        if (querySnapshot.docs.isNotEmpty) {
+          var userDoc = querySnapshot.docs.first;
+          profileFirstName = userDoc['first_name'];
+          profileLastName = userDoc['last_name'];
+          CacheHelper.saveData(key: 'first_name', value: profileFirstName);
+          CacheHelper.saveData(key: 'last_name', value: profileLastName);
+        } else {
+          throw Exception("User data not found");
+        }
+      }
+
+      emit(UserLoaded(firstName: profileFirstName, lastName: profileLastName));
+    } catch (e) {
+      debugPrint('Error fetching user data: $e');
+      emit(UserError('Error fetching user data'));
+    }
   }
 
   Future<void> pickImageFromGallery() async {

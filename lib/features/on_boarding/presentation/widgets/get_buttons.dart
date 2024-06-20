@@ -1,6 +1,6 @@
-import 'package:brain_tumor/core/routes/routes.dart';
-import 'package:brain_tumor/core/utils/app_colors.dart';
-import 'package:brain_tumor/core/widgets/custom_button.dart';
+import '../../../../core/routes/routes.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/cache/cache_helper.dart';

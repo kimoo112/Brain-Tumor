@@ -1,5 +1,5 @@
-import 'package:brain_tumor/core/cache/cache_helper.dart';
-import 'package:brain_tumor/core/utils/app_strings.dart';
+import '../../../../core/cache/cache_helper.dart';
+import '../../../../core/utils/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

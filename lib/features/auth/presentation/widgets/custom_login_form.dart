@@ -1,11 +1,10 @@
-import 'package:brain_tumor/core/utils/app_colors.dart';
-import 'package:brain_tumor/core/widgets/custom_button.dart';
-import 'package:brain_tumor/features/auth/presentation/cubit/auth_cubit.dart';
-import 'package:brain_tumor/features/auth/presentation/cubit/auth_state.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/widgets/custom_button.dart';
+import '../cubit/auth_cubit.dart';
+import '../cubit/auth_state.dart';
 import 'package:cherry_toast/cherry_toast.dart';
 import 'package:cherry_toast/resources/arrays.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,19 +14,23 @@ import '../../../../core/routes/navigation_functions.dart';
 import '../../../../core/routes/routes.dart';
 import '../widgets/custom_text_form_field.dart';
 
-class CustomLoginForm extends StatelessWidget {
+class CustomLoginForm extends StatefulWidget {
   const CustomLoginForm({
     super.key,
-    required this.signInFormKey,
   });
 
-  final GlobalKey<FormState> signInFormKey;
+  @override
+  State<CustomLoginForm> createState() => _CustomLoginFormState();
+}
+
+class _CustomLoginFormState extends State<CustomLoginForm> {
+  GlobalKey<FormState> signInFormKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AuthCubit , AuthState >(
+    return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
-       if (state is SignInSuccessState) {
+        if (state is SignInSuccessState) {
           if (FirebaseAuth.instance.currentUser!.emailVerified) {
             customReplacementNavigate(context, appNavigation);
             CherryToast.success(

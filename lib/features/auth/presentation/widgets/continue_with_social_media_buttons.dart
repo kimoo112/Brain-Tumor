@@ -1,5 +1,5 @@
 
-import 'package:brain_tumor/features/auth/presentation/widgets/social_media_button.dart';
+import 'social_media_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_assets.dart';

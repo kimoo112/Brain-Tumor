@@ -53,9 +53,9 @@ class Assets {
   /// assets/images/plus_document.png
   static const String imagesPlusDocument = "assets/images/plus_document.png";
 
-  /// Assets for imagesPurpleCirlce
-  /// assets/images/PurpleCirlce.png
-  static const String imagesPurpleCircle = "assets/images/PurpleCirlce.png";
+  /// Assets for imagesPurpleCircle
+  /// assets/images/PurpleCircle.png
+  static const String imagesPurpleCircle = "assets/images/PurpleCircle.png";
 
   /// Assets for imagesScanIcon
   /// assets/images/scanIcon.png

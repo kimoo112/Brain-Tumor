@@ -1,22 +1,16 @@
-import 'package:brain_tumor/core/routes/navigation_functions.dart';
-import 'package:brain_tumor/core/routes/routes.dart';
-import 'package:brain_tumor/core/utils/app_colors.dart';
-import 'package:brain_tumor/core/utils/app_text_styles.dart';
+import '../../../../core/routes/navigation_functions.dart';
+import '../../../../core/routes/routes.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../widgets/continue_with_social_media_buttons.dart';
 import '../widgets/custom_login_form.dart';
 
-class LoginView extends StatefulWidget {
+class LoginView extends StatelessWidget {
   const LoginView({super.key});
 
-  @override
-  State<LoginView> createState() => _LoginViewState();
-}
-
-class _LoginViewState extends State<LoginView> {
-  GlobalKey<FormState> signInFormKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,9 +25,7 @@ class _LoginViewState extends State<LoginView> {
               16.verticalSpace,
               _buildLoginDescription(),
               32.verticalSpace,
-              CustomLoginForm(
-                signInFormKey: signInFormKey,
-              ),
+              const CustomLoginForm(),
               16.verticalSpace,
               _buildForgetPasswordWidget(context),
               16.verticalSpace,
@@ -51,17 +43,17 @@ class _LoginViewState extends State<LoginView> {
 
   Text _buildLoginDescription() {
     return Text(
-              'Enter your credentials to access your account',
-              style: CustomTextStyles.poppins400Style16
-                  .copyWith(color: AppColors.darkGrey),
-              textAlign: TextAlign.center,
-            );
+      'Enter your credentials to access your account',
+      style: CustomTextStyles.poppins400Style16
+          .copyWith(color: AppColors.darkGrey),
+      textAlign: TextAlign.center,
+    );
   }
 
   Text _buildLoginTitle() {
     return Text('Login',
-                style: CustomTextStyles.poppins400Style24
-                    .copyWith(fontWeight: FontWeight.bold));
+        style: CustomTextStyles.poppins400Style24
+            .copyWith(fontWeight: FontWeight.bold));
   }
 
   TextButton _buildForgetPasswordWidget(BuildContext context) {

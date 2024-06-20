@@ -39,7 +39,20 @@ final class ObscureConfirmPasswordTextUpdateState extends AuthState {}
 final class SignOutLoading extends AuthState {}
 final class SignOutSuccess extends AuthState {}
 final class SignOutFailure extends AuthState {}
-  
+ class UserLoading extends AuthState {}
+
+class UserLoaded extends AuthState {
+  final String? firstName;
+  final String? lastName;
+
+  UserLoaded({required this.firstName, required this.lastName});
+}
+
+class UserError extends AuthState {
+  final String message;
+
+  UserError(this.message);
+} 
 final class ProfileImageEmpty extends AuthState {}
 final class ProfileImageLoading extends AuthState {}
 
