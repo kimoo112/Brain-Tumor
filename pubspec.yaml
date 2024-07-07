@@ -12,6 +12,8 @@ dependencies:
   cherry_toast: ^1.10.1
   cloud_firestore: ^4.17.3
   cupertino_icons: ^1.0.6
+  day_night_themed_switch: ^1.0.0
+  day_night_themed_switcher: ^1.1.0
   firebase_auth: ^4.19.5
   firebase_core: ^2.31.0
   flutter:
@@ -34,7 +36,7 @@ dev_dependencies:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/images/logo.png"
+  image_path: "assets/images/slogan.png"
 
 flutter:
   uses-material-design: true

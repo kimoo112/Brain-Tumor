@@ -38,6 +38,7 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
             title: const Text(
                 'Successfully,Check your email to verify your account'),
             animationType: AnimationType.fromTop,
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
             animationDuration: const Duration(milliseconds: 700),
           ).show(context);
           customReplacementNavigate(context, loginView);
@@ -47,6 +48,7 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
             title: Text(state.errMessage),
             animationType: AnimationType.fromTop,
             animationDuration: const Duration(milliseconds: 700),
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           ).show(context);
         }
       },

@@ -1,16 +1,17 @@
-import '../../../../core/utils/app_assets.dart';
-import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_text_styles.dart';
-import '../../../auth/presentation/cubit/auth_state.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/utils/app_assets.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_text_styles.dart';
 import '../../../auth/presentation/cubit/auth_cubit.dart';
+import '../../../auth/presentation/cubit/auth_state.dart';
 import '../widgets/custom_profile_info_field.dart';
 import '../widgets/custom_signout_button.dart';
 import '../widgets/profile_picture_widget.dart';
+import '../widgets/theme_toggle_list_tile.dart';
 import '../widgets/user_profile_info.dart';
 
 class ProfileView extends StatefulWidget {
@@ -77,6 +78,7 @@ class _ProfileViewState extends State<ProfileView> {
                       infoTitle: "Email Address",
                       info: FirebaseAuth.instance.currentUser!.email!),
                   55.verticalSpace,
+                  const ThemeToggleListTile(),
                   const CustomSignOutButton()
                 ],
               ),

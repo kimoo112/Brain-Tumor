@@ -21,6 +21,7 @@ class HomeView extends StatelessWidget {
             CherryToast.error(
               title: Text(state.errMessage),
               animationType: AnimationType.fromTop,
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               animationDuration: const Duration(milliseconds: 700),
             ).show(context);
           }

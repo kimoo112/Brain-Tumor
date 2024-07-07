@@ -23,6 +23,7 @@ class CustomSignOutButton extends StatelessWidget {
         if (state is SignOutSuccess) {
           context.pushReplacement(loginView);
           CherryToast.info(
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                   title: const Text('Signed Out, Wish to see you again soon! '))
               .show(context);
         }

@@ -1,9 +1,10 @@
-import '../../../../core/routes/routes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/cache/cache_helper.dart';
 import '../../../../core/routes/navigation_functions.dart';
+import '../../../../core/routes/routes.dart';
 import '../../../../core/utils/app_assets.dart';
 
 class SplashView extends StatefulWidget {
@@ -33,7 +34,11 @@ class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Image.asset(Assets.imagesLogo)),
+      body: Center(
+          child: SizedBox(
+              width: 250.w,
+              height: 250.h,
+              child: Image.asset(Assets.imagesSloganText))),
     );
   }
 }

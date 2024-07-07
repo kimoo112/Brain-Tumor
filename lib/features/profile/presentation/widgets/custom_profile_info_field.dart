@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text_styles.dart';
 
 class CustomProfileInfoField extends StatelessWidget {
@@ -23,10 +22,10 @@ class CustomProfileInfoField extends StatelessWidget {
         Text(
           info!,
           style: CustomTextStyles.poppins400Style16
-              .copyWith(color: AppColors.primaryBlue),
+              .copyWith(color: Theme.of(context).cardColor),
         ),
-        const Divider(
-          color: AppColors.primaryBlue,
+        Divider(
+          color: Theme.of(context).cardColor,
           endIndent: 50,
         ),
       ],

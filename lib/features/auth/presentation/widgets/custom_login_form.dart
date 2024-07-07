@@ -1,7 +1,3 @@
-import '../../../../core/utils/app_colors.dart';
-import '../../../../core/widgets/custom_button.dart';
-import '../cubit/auth_cubit.dart';
-import '../cubit/auth_state.dart';
 import 'package:cherry_toast/cherry_toast.dart';
 import 'package:cherry_toast/resources/arrays.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -12,6 +8,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../core/routes/navigation_functions.dart';
 import '../../../../core/routes/routes.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/widgets/custom_button.dart';
+import '../cubit/auth_cubit.dart';
+import '../cubit/auth_state.dart';
 import '../widgets/custom_text_form_field.dart';
 
 class CustomLoginForm extends StatefulWidget {
@@ -37,6 +37,7 @@ class _CustomLoginFormState extends State<CustomLoginForm> {
               title: const Text('Successfully signed in'),
               animationType: AnimationType.fromTop,
               animationDuration: const Duration(milliseconds: 700),
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
             ).show(context);
           } else {
             CherryToast.warning(
@@ -46,6 +47,7 @@ class _CustomLoginFormState extends State<CustomLoginForm> {
               ),
               animationType: AnimationType.fromTop,
               animationDuration: const Duration(milliseconds: 700),
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
             ).show(context);
           }
         } else if (state is SignInFailureState) {
@@ -53,6 +55,7 @@ class _CustomLoginFormState extends State<CustomLoginForm> {
             title: Text(state.errMessage),
             animationType: AnimationType.fromTop,
             animationDuration: const Duration(milliseconds: 700),
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           ).show(context);
         }
       },

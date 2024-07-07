@@ -21,7 +21,7 @@ class AppNavigation extends StatefulWidget {
 
 class _AppNavigationState extends State<AppNavigation>
     with TickerProviderStateMixin {
-  var _bottomNavIndex = 0; //default index of a first screen
+  var _bottomNavIndex = 0; 
 
   late AnimationController _fabAnimationController;
   late AnimationController _borderRadiusAnimationController;

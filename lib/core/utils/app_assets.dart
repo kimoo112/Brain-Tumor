@@ -64,5 +64,13 @@ class Assets {
   /// Assets for imagesSignoutIcon
   /// assets/images/SignoutIcon.png
   static const String imagesSignoutIcon = "assets/images/SignoutIcon.png";
+
+  /// Assets for imagesSlogan
+  /// assets/images/slogan.png
+  static const String imagesSlogan = "assets/images/slogan.png";
+
+  /// Assets for imagesSloganText
+  /// assets/images/slogan_text.png
+  static const String imagesSloganText = "assets/images/slogan_text.png";
 }
 
