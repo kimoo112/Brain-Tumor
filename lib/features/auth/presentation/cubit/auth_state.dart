@@ -6,6 +6,8 @@ final class SignupLoadingState extends AuthState {}
 
 final class SignupSuccessState extends AuthState {}
 
+final class SignupSuccessStateWithVerificationSent extends AuthState {}
+
 final class SignupFailureState extends AuthState {
   final String errMessage;
 
@@ -15,6 +17,8 @@ final class SignupFailureState extends AuthState {
 final class SignInLoadingState extends AuthState {}
 
 final class SignInSuccessState extends AuthState {}
+
+final class SignInSuccessStateWithUnverifiedEmail extends AuthState {}
 
 final class SignInFailureState extends AuthState {
   final String errMessage;
@@ -35,11 +39,16 @@ final class ResetPasswordFailureState extends AuthState {
 final class TermsAndConditionUpdateState extends AuthState {}
 
 final class ObscurePasswordTextUpdateState extends AuthState {}
+
 final class ObscureConfirmPasswordTextUpdateState extends AuthState {}
+
 final class SignOutLoading extends AuthState {}
+
 final class SignOutSuccess extends AuthState {}
+
 final class SignOutFailure extends AuthState {}
- class UserLoading extends AuthState {}
+
+class UserLoading extends AuthState {}
 
 class UserLoaded extends AuthState {
   final String? firstName;
@@ -52,12 +61,22 @@ class UserError extends AuthState {
   final String message;
 
   UserError(this.message);
-} 
+}
+
 final class ProfileImageEmpty extends AuthState {}
+
 final class ProfileImageLoading extends AuthState {}
 
 final class ProfileImagePicked extends AuthState {
   final String imagePath;
 
   ProfileImagePicked({required this.imagePath});
+}
+
+final class EmailVerificationSentState extends AuthState {}
+
+final class EmailVerificationErrorState extends AuthState {
+  final String errMessage;
+
+  EmailVerificationErrorState({required this.errMessage});
 }

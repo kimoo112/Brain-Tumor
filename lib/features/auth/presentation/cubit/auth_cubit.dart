@@ -188,6 +188,8 @@ class AuthCubit extends Cubit<AuthState> {
             value: imagePath);
         loadImage();
         emit(ProfileImagePicked(imagePath: imagePath));
+        emit(
+            UserLoaded(firstName: profileFirstName, lastName: profileLastName));
       } else {}
     } catch (e) {
       debugPrint(e.toString());
@@ -201,6 +203,7 @@ class AuthCubit extends Cubit<AuthState> {
       imagePath = CacheHelper.getData(
           key: "${FirebaseAuth.instance.currentUser!.uid} Image")!;
       emit(ProfileImagePicked(imagePath: imagePath));
+      emit(UserLoaded(firstName: profileFirstName, lastName: profileLastName));
     } else {}
   }
 }

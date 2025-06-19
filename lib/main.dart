@@ -1,5 +1,5 @@
-import 'package:brain_tumor/core/themes/logic/app_theme_cubit.dart';
-import 'package:brain_tumor/core/themes/theme.dart';
+import 'core/themes/logic/app_theme_cubit.dart';
+import 'core/themes/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

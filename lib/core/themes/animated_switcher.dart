@@ -1,96 +1,105 @@
-// ignore: implementation_imports
-import 'package:day_night_themed_switch/src/day_night_painter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class DayNightSwitch extends StatefulWidget {
-  final bool value;
-  final ValueChanged<bool>? onChanged;
-  final FocusNode? focusNode;
-  final Duration animationDuration;
-  final double? width;
-  final double? height;
-  const DayNightSwitch({
-    super.key,
-    required this.value,
-    required this.onChanged,
-    this.focusNode,
-    this.animationDuration = const Duration(milliseconds: 400),
-    this.width,
-    this.height,
-  });
+import '../utils/app_colors.dart';
+import 'logic/app_theme_cubit.dart';
 
-  @override
-  State<DayNightSwitch> createState() => DayNightSwitchState();
-}
-
-@visibleForTesting
-class DayNightSwitchState extends State<DayNightSwitch>
-    with TickerProviderStateMixin {
-  late final AnimationController animation;
-  bool _value = false;
-
-  bool get value => _value;
-
-  @override
-  void initState() {
-    super.initState();
-    _value = widget.value;
-    animation = AnimationController(
-      vsync: this,
-      duration: widget.animationDuration,
-      value: _value ? 1.0 : 0.0,
-    )..addListener(() => setState(() {}));
-  }
-
-  @override
-  void dispose() {
-    animation.dispose();
-    super.dispose();
-  }
-
-  @override
-  void didUpdateWidget(covariant DayNightSwitch oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (oldWidget.value != widget.value) {
-      _value = widget.value;
-      final target = _value ? 1.0 : 0.0;
-      animation.value = target;
-    }
-  }
+class ModernThemeSwitcher extends StatelessWidget {
+  const ModernThemeSwitcher({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final switchAnimation = CurvedAnimation(
-      parent: animation,
-      curve: Curves.easeInOut,
-    );
+    return BlocBuilder<AppThemeCubit, AppThemeState>(
+      builder: (context, state) {
+        bool isDark = state is AppThemeIsDark;
 
-    return LayoutBuilder(builder: (context, constraints) {
-      return Focus(
-        focusNode: widget.focusNode,
-        child: MouseRegion(
-          cursor: SystemMouseCursors.click,
-          child: GestureDetector(
-            onTap: () async {
-              if (animation.isAnimating) return;
-              if (!_value) {
-                await animation.forward();
-              } else {
-                await animation.reverse();
-              }
-              setState(() => _value = !value);
-              widget.onChanged?.call(_value);
-            },
-            child: SizedBox(
-              width: widget.width??100,
-              height: widget.height??50,
-              child: CustomPaint(
-                painter: DayNightPainter(switchAnimation.value),
+        return GestureDetector(
+          onTap: () {
+            context.read<AppThemeCubit>().changeTheme();
+          },
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+            width: 60.w,
+            height: 30.h,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30.r),
+              gradient: LinearGradient(
+                colors: isDark
+                    ? [AppColors.primaryLight, AppColors.primaryLightBlue]
+                    : [AppColors.primaryColor, AppColors.primaryBlue],
               ),
+              boxShadow: [
+                BoxShadow(
+                  color:
+                      (isDark ? AppColors.primaryLight : AppColors.primaryColor)
+                          .withOpacity(0.3),
+                  blurRadius: 8,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
+            child: Stack(
+              children: [
+                // Background pattern
+                Positioned.fill(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30.r),
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                          Colors.white.withOpacity(0.1),
+                          Colors.transparent,
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+
+                // Toggle button
+                AnimatedAlign(
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                  alignment:
+                      isDark ? Alignment.centerRight : Alignment.centerLeft,
+                  child: Container(
+                    margin: EdgeInsets.all(2.w),
+                    width: 26.w,
+                    height: 26.w,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.1),
+                          blurRadius: 4,
+                          offset: const Offset(0, 2),
+                        ),
+                      ],
+                    ),
+                    child: AnimatedSwitcher(
+                      duration: const Duration(milliseconds: 300),
+                      child: Icon(
+                        isDark
+                            ? Icons.nightlight_round
+                            : Icons.wb_sunny_rounded,
+                        key: ValueKey(isDark),
+                        size: 16.sp,
+                        color: isDark
+                            ? AppColors.primaryLight
+                            : AppColors.primaryColor,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
-        ),
-      );
-    });
+        );
+      },
+    );
   }
 }

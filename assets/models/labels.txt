@@ -1,4 +1,4 @@
- Glioma
- Meningioma
- Notumor
- Pituitary
+Glioma
+Meningioma
+No tumor
+Pituitary

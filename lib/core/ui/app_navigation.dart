@@ -1,15 +1,16 @@
 import 'dart:async';
 
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-import '../utils/app_assets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../features/home/presentation/views/home_view.dart';
 import '../../features/profile/presentation/view/profile_view.dart';
 import '../../features/scanner/presentation/logic/cubit/object_detection_cubit.dart';
+import '../utils/app_assets.dart';
 import '../utils/app_colors.dart';
 
 class AppNavigation extends StatefulWidget {
@@ -21,7 +22,7 @@ class AppNavigation extends StatefulWidget {
 
 class _AppNavigationState extends State<AppNavigation>
     with TickerProviderStateMixin {
-  var _bottomNavIndex = 0; 
+  var _bottomNavIndex = 0;
 
   late AnimationController _fabAnimationController;
   late AnimationController _borderRadiusAnimationController;
@@ -35,10 +36,17 @@ class _AppNavigationState extends State<AppNavigation>
     CupertinoIcons.clock,
     CupertinoIcons.person,
   ];
+
+  final List<String> titles = [
+    'Home',
+    'Profile',
+  ];
+
   List<Widget> pages = [
     const HomeView(),
     const ProfileView(),
   ];
+
   @override
   void initState() {
     super.initState();
@@ -110,9 +118,18 @@ class _AppNavigationState extends State<AppNavigation>
         shape: const CircleBorder(),
         backgroundColor: AppColors.primaryColor,
         child: Stack(
-          children: [Image.asset(Assets.imagesScanIcon)],
+          children: [
+            Container(
+              padding: EdgeInsets.all(8.w),
+              child: Image.asset(
+                Assets.imagesScanIcon,
+                width: 24.w,
+                height: 24.w,
+                color: Colors.white,
+              ),
+            ),
+          ],
         ),
-        //params
       ),
       body: pages.elementAt(_bottomNavIndex),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -133,7 +150,7 @@ class _AppNavigationState extends State<AppNavigation>
             ],
           );
         },
-        backgroundColor: AppColors.white,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         activeIndex: _bottomNavIndex,
         splashColor: AppColors.primaryColor,
         notchAndCornersAnimation: borderRadiusAnimation,
@@ -148,7 +165,7 @@ class _AppNavigationState extends State<AppNavigation>
           offset: const Offset(0, 1),
           blurRadius: 12,
           spreadRadius: 0.5,
-          color: AppColors.lightGrey.withOpacity(.4),
+          color: Colors.black.withOpacity(.1),
         ),
       ),
     );

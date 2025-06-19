@@ -42,29 +42,35 @@ class _ProfileViewState extends State<ProfileView> {
                 children: <Widget>[
                   _profileTopBar(),
                   16.verticalSpace,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      const ProfilePicture(),
-                      8.horizontalSpace,
-                      BlocBuilder<AuthCubit, AuthState>(
-                          builder: (context, state) {
-                        if (state is UserLoading) {
-                          return const CircularProgressIndicator(
-                            color: AppColors.primaryColor,
-                          );
-                        } else if (state is UserLoaded) {
-                          return UserProfileInfo(
-                            firstName: state.firstName!,
-                            lastName: state.lastName!,
-                          );
-                        } else if (state is UserError) {
-                          return Text('Error: ${state.message}');
-                        }
-                        return Container();
-                      })
-                    ],
+                  BlocBuilder<AuthCubit, AuthState>(
+                    builder: (context, state) {
+                      Widget userInfoWidget;
+                      if (state is UserLoading) {
+                        userInfoWidget = const CircularProgressIndicator(
+                          color: AppColors.primaryColor,
+                        );
+                      } else if (state is UserLoaded) {
+                        userInfoWidget = UserProfileInfo(
+                          firstName: state.firstName!,
+                          lastName: state.lastName!,
+                        );
+                      } else if (state is UserError) {
+                        userInfoWidget = Text('Error: ${state.message}');
+                      } else {
+                        userInfoWidget = Container();
+                      }
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          const ProfilePicture(),
+                          8.horizontalSpace,
+                          userInfoWidget,
+                        ],
+                      );
+                    },
                   ),
+                  16.verticalSpace,
+                  const ThemeToggleListTile(),
                   22.verticalSpace,
                   CustomProfileInfoField(
                       infoTitle: "First Name",
@@ -78,7 +84,7 @@ class _ProfileViewState extends State<ProfileView> {
                       infoTitle: "Email Address",
                       info: FirebaseAuth.instance.currentUser!.email!),
                   55.verticalSpace,
-                  const ThemeToggleListTile(),
+                  // const ThemeToggleListTile(),
                   const CustomSignOutButton()
                 ],
               ),
@@ -96,7 +102,11 @@ class _ProfileViewState extends State<ProfileView> {
   Text _profileTopBar() {
     return Text(
       'Profile',
-      style: CustomTextStyles.poppins400Style24,
+      style: CustomTextStyles.poppins400Style24.copyWith(
+        fontWeight: FontWeight.bold,
+        fontSize: 32.sp,
+        color: Theme.of(context).colorScheme.primary,
+      ),
     );
   }
 }
